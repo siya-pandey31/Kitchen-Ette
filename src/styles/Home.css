@@ -1,0 +1,110 @@
+/* Main container */
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: sans-serif;
+  background-color: #f8f8f8;
+}
+
+/* Header container */
+.headerContainer {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  color: rgb(29, 27, 27);
+  padding-bottom: 40px;
+  margin-top: 120px;
+  overflow: hidden;
+}
+
+/* Increased height and decreased width for the banner image */
+.bannerImage {
+  width: 80%; /* Decreased width (you can adjust as needed) */
+  max-height: 500px; /* Increased height */
+  object-fit: cover; /* Ensure the image covers the area without stretching */
+  object-position: center center; /* Keep the image centered */
+  margin-left: 0; /* Align the image with the container */
+  transition: transform 0.3s ease, filter 0.5s ease; /* Smooth transition */
+  filter: brightness(70%); /* Dim the image to enhance text visibility */
+  border-radius: 20px; /* Curved edges */
+  z-index: 0; /* Ensure image stays behind text */
+}
+
+/* Add a dark overlay over the banner image */
+.headerContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+   /* Semi-transparent dark overlay */
+  z-index: 1; /* Overlay is above the image */
+}
+
+/* Heading and paragraph styling */
+.headerContainer h1 {
+  font-size: 2.5em;
+  margin-top: 20px;
+  z-index: 2; /* Text stays above the overlay */
+}
+
+.headerContainer p {
+  font-size: 1.3em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  z-index: 2; /* Text stays above the overlay */
+}
+
+/* Button styling */
+.headerContainer button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  background-color: #f0ad4e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 2; /* Button stays above the overlay */
+}
+
+.headerContainer button:hover {
+  background-color: #e69500;
+  transform: scale(1.1); /* Button scaling effect on hover */
+}
+
+/* Hover effect to zoom in the banner image */
+.headerContainer:hover .bannerImage {
+  transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bannerImage {
+    max-height: 280px; /* Smaller height for tablets */
+  }
+
+  .headerContainer h1 {
+    font-size: 2.5em;
+  }
+
+  .headerContainer p {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerImage {
+    max-height: 250px; /* Smaller height for mobile devices */
+  }
+
+  .headerContainer h1 {
+    font-size: 1.8em;
+  }
+
+  .headerContainer p {
+    font-size: 1em;
+  }
+}
