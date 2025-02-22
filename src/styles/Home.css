@@ -1,110 +1,293 @@
-/* Main container */
-.home {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF8E7; /* Light beige */
+  color: #3E2723; /* Dark brown */
+}
+
+/* ✅ Navbar Styling */
+.navbar {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(90deg, #8B5E3C, #5A3E2B); /* Gradient Brown */
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: sans-serif;
-  background-color: #f8f8f8;
-}
-
-/* Header container */
-.headerContainer {
-  position: relative;
-  text-align: center;
-  padding: 20px;
-  color: rgb(29, 27, 27);
-  padding-bottom: 40px;
-  margin-top: 120px;
-  overflow: hidden;
-}
-
-/* Increased height and decreased width for the banner image */
-.bannerImage {
-  width: 80%; /* Decreased width (you can adjust as needed) */
-  max-height: 500px; /* Increased height */
-  object-fit: cover; /* Ensure the image covers the area without stretching */
-  object-position: center center; /* Keep the image centered */
-  margin-left: 0; /* Align the image with the container */
-  transition: transform 0.3s ease, filter 0.5s ease; /* Smooth transition */
-  filter: brightness(70%); /* Dim the image to enhance text visibility */
-  border-radius: 20px; /* Curved edges */
-  z-index: 0; /* Ensure image stays behind text */
-}
-
-/* Add a dark overlay over the banner image */
-.headerContainer::before {
-  content: '';
-  position: absolute;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-   /* Semi-transparent dark overlay */
-  z-index: 1; /* Overlay is above the image */
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Heading and paragraph styling */
-.headerContainer h1 {
-  font-size: 2.5em;
-  margin-top: 20px;
-  z-index: 2; /* Text stays above the overlay */
+
+.leftside img {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
 }
 
-.headerContainer p {
-  font-size: 1.3em;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  z-index: 2; /* Text stays above the overlay */
+.leftside img:hover {
+  transform: scale(1.05);
 }
 
-/* Button styling */
-.headerContainer button {
-  padding: 15px 30px;
-  font-size: 1.2em;
-  background-color: #f0ad4e;
-  color: white;
-  border: none;
+.rightside {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.rightside a {
+  color: #F5F5DC;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out, transform 0.2s;
+  padding: 8px 15px;
   border-radius: 5px;
+}
+
+.rightside a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFF5E1;
+  transform: scale(1.1);
+}
+
+/* ✅ Header Section */
+.headerContainer {
+  text-align: center;
+  padding: 120px 20px 60px;
+}
+
+.bannerImage {
+  width: 90%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #3E2723;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 400;
+  color: #5A3E2B;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.orderButton {
+  background: #8B5E3C;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  z-index: 2; /* Button stays above the overlay */
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  font-family: 'Cormorant Garamond', serif;
 }
 
-.headerContainer button:hover {
-  background-color: #e69500;
-  transform: scale(1.1); /* Button scaling effect on hover */
+.orderButton:hover {
+  background: #5A3E2B;
+  transform: scale(1.05);
 }
 
-/* Hover effect to zoom in the banner image */
-.headerContainer:hover .bannerImage {
-  transform: scale(1.05); /* Slight zoom-in effect */
+.aboutSection {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #FFF5E1;
+  border-radius: 15px;
+  margin: 40px auto;
+  max-width: 800px;
+  font-family: 'Cormorant Garamond', serif;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .bannerImage {
-    max-height: 280px; /* Smaller height for tablets */
-  }
+.aboutSection h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #141312;
+  font-family: 'Cormorant Garamond', serif;
+}
 
-  .headerContainer h1 {
-    font-size: 2.5em;
-  }
+.aboutSection p {
+  font-size: 18px;
+  color: #141313;
+  line-height: 1.6;
+  font-family: 'Cormorant Garamond', serif;
+}
 
-  .headerContainer p {
-    font-size: 1.1em;
+.specialitySection {
+  text-align: center;
+  background-color: #f9f3e6;
+  padding: 60px 20px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.restaurantName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8B5E3C;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.mainTitle {
+  font-size: 42px;
+  font-weight: 700;
+  color: #3E2723;
+  margin: 10px 0;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.divider {
+  width: 50px;
+  height: 3px;
+  background-color: #8B5E3C;
+  margin: 10px auto;
+}
+
+.subText {
+  font-size: 18px;
+  color: #111010;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.imageGrid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.imageContainer {
+  width: 300px;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.imageContainer:hover {
+  transform: scale(1.05);
+}
+
+.dishImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+
+.testimonialsSection {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #FFF8E7;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.testimonialsSection h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #8B5E3C;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+blockquote {
+  font-size: 20px;
+  font-style: italic;
+  color: #0e0d0d;
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+
+.footerContainer {
+  text-align: center;
+  padding: 30px 20px;
+  background: #0f0f0e;
+  color: #fff;
+}
+
+.footerLinks a {
+  color: #F5F5DC;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+.footerLinks a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 480px) {
-  .bannerImage {
-    max-height: 250px; /* Smaller height for mobile devices */
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
   }
 
-  .headerContainer h1 {
-    font-size: 1.8em;
+  .rightside {
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #5A3E2B;
+    text-align: center;
+    padding: 10px 0;
+    gap: 15px;
+    display: none;
   }
 
-  .headerContainer p {
-    font-size: 1em;
+  .rightside a {
+    font-size: 20px;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .rightside.open {
+    display: flex;
+  }
+
+  .rightside button {
+    display: block;
+  }
+
+  .imageGrid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageContainer {
+    width: 90%;
+    height: auto;
   }
 }
