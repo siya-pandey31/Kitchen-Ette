@@ -5,7 +5,7 @@ import AOS from "aos";
 import { motion } from "framer-motion"; 
 import "aos/dist/aos.css";
 import BannerImage from "../assets/BannerImage.png";
-import Dish1 from "../assets/veg pulao panner.jpg"; 
+import Dish1 from "../assets/pulao-panner.jpg"; 
 import Dish2 from "../assets/Special thali.jpg";
 import Dish3 from "../assets/Normal thali.jpg";
 import "../styles/Home.css";
@@ -15,10 +15,22 @@ function Home() {
     AOS.init({ duration: 1000, easing: "ease-in-out", once: true });
   }, []);
 
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [searchLocation, setSearchLocation] = useState("");
 
-  const handleImageLoad = () => {
-    setIsLoaded(true);
+  
+  const locations = ["8th Block", "28th Block", "26th Block", "29th Block", "30 Block", "32 Block", "33 Block", "34 Block", "55 Block","56 Block", "57 Block", "GH2","GH4","GH5","GH6","GH7","BH1","BH2","BH4","BH5"];
+
+
+  const handleLocationChange = (event) => {
+    setSelectedLocation(event.target.value);
+    setSearchLocation(""); 
+  };
+
+
+  const handleSearchChange = (event) => {
+    setSearchLocation(event.target.value);
+    setSelectedLocation(""); 
   };
 
   return (
@@ -32,7 +44,6 @@ function Home() {
       </Helmet>
 
       <div className="headerContainer" data-aos="fade-right">
-       
         <motion.div
           className="bannerWrapper"
           initial={{ opacity: 0, y: -50 }}
@@ -40,22 +51,44 @@ function Home() {
           transition={{ duration: 1.2, ease: "easeInOut" }}
           whileHover={{ scale: 1.05 }}
         >
-          <img
-            src={BannerImage}
-            alt="Kitchen Ette Banner"
-            className="bannerImage"
-            onLoad={handleImageLoad}
-          />
+          <img src={BannerImage} alt="Kitchen Ette Banner" className="bannerImage" />
         </motion.div>
 
         <h1 data-aos="fade-right">When Flavours meet passion, Magic happens</h1>
         <h3 data-aos="fade-left">Come Join Us For A Magical Experience</h3>
 
-        <Link to="/menu">
-          <button className="orderButton" data-aos="zoom-in">Order Now</button>
+        <div className="locationSelector" data-aos="zoom-in">
+          <label htmlFor="location">Select Your Location:</label>
+          <select id="location" value={selectedLocation} onChange={handleLocationChange} className="locationDropdown">
+            <option value="">Choose a location</option>
+            {locations.map((loc, index) => (
+              <option key={index} value={loc}>{loc}</option>
+            ))}
+          </select>
+        </div>
+
+
+        <div className="searchLocation" data-aos="zoom-in">
+          <label htmlFor="search">Or Search Your Location:</label>
+          <input
+            type="text"
+            id="search"
+            placeholder="Enter your city"
+            value={searchLocation}
+            onChange={handleSearchChange}
+            className="searchInput"
+          />
+        </div>
+
+        
+        <Link to={selectedLocation || searchLocation ? "/menu" : "#"}>
+          <button className="orderButton" data-aos="zoom-in" disabled={!selectedLocation && !searchLocation}>
+            Order Now
+          </button>
         </Link>
       </div>
 
+      
       <section className="aboutSection" data-aos="fade-up">
         <h2>About Us</h2>
         <p>
@@ -69,7 +102,7 @@ function Home() {
         </p>
       </section>
 
-    
+  
       <section className="specialitySection">
         <h3 className="restaurantName" data-aos="fade-down">India Restaurant</h3>
         <h1 className="mainTitle" data-aos="fade-right">Our Speciality</h1>
@@ -91,6 +124,7 @@ function Home() {
         </div>
       </section>
 
+      
       <section className="testimonialsSection" data-aos="fade-in">
         <h2>What Our Customers Say</h2>
         <blockquote data-aos="fade-right">
@@ -103,6 +137,7 @@ function Home() {
         </blockquote>
       </section>
 
+    
       <footer className="footerContainer" data-aos="fade-up">
         <div className="footerLinks">
           <Link to="/">Home</Link> | 
@@ -117,3 +152,4 @@ function Home() {
 }
 
 export default Home;
+

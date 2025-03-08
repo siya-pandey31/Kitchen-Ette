@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Global Styles */
+
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #FFF8E7; /* Light beige */
-  color: #3E2723; /* Dark brown */
+  background-color: #FFF8E7; 
+  color: #3E2723; 
 }
 
-/* ✅ Navbar Styling */
+
 .navbar {
   width: 100%;
   height: 80px;
-  background: linear-gradient(90deg, #8B5E3C, #5A3E2B); /* Gradient Brown */
+  background: linear-gradient(90deg, #8B5E3C, #5A3E2B); 
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,7 +60,7 @@ body {
   transform: scale(1.1);
 }
 
-/* ✅ Header Section */
+
 .headerContainer {
   text-align: center;
   padding: 120px 20px 60px;
@@ -84,7 +84,7 @@ h1 {
 h3 {
   font-size: 22px;
   font-weight: 400;
-  color: #5A3E2B;
+  color: #3c2617;
   font-family: 'Cormorant Garamond', serif;
 }
 
@@ -289,5 +289,72 @@ blockquote {
   .imageContainer {
     width: 90%;
     height: auto;
+  }
+}
+
+.locationSelector, .searchLocation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 500px;
+}
+
+.locationSelector label, .searchLocation label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #5A3E2B;
+  margin-bottom: 8px;
+}
+
+.locationDropdown, .searchInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #8B5E3C;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.locationDropdown:hover, .searchInput:hover {
+  border-color: #5A3E2B;
+}
+
+.searchInput::placeholder {
+  color: #A38268;
+  font-style: italic;
+}
+
+
+.orderButton {
+  background: #8B5E3C;
+  color: white;
+  padding: 14px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 15px;
+}
+
+.orderButton:hover {
+  background: #5A3E2B;
+}
+
+.orderButton:disabled {
+  background: #C4A99E;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 768px) {
+  .locationSelector, .searchLocation {
+    max-width: 90%;
+  }
+
+  .orderButton {
+    width: 100%;
   }
 }

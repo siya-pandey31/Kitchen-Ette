@@ -22,7 +22,7 @@ function Navbar() {
         <Link to="/">Home</Link>
         <Link to="/beverage">Beverage</Link>
 
-        <div 
+        <div
           className="menu-dropdown"
           onMouseEnter={() => setIsDropdownOpen(true)}
           onMouseLeave={() => setIsDropdownOpen(false)}
@@ -33,12 +33,11 @@ function Navbar() {
               <li><Link to="/menu/breakfast">Breakfast</Link></li>
               <li><Link to="/menu/lunch">Lunch</Link></li>
               <li><Link to="/menu/dinner">Dinner</Link></li>
-              <li><Link to="/menu/desserts">Paratha's</Link></li>
-              <li><Link to="/menu/desserts">Thali</Link></li>
-              <li><Link to="/menu/desserts">Rice Combo</Link></li>
-              <li><Link to="/menu/desserts">Paratha's</Link></li>
-              <li><Link to="/menu/desserts">Bowl</Link></li>
-              <li><Link to="/menu/desserts">Hot & cold</Link></li>
+              <li><Link to="/menu/paratha">Paratha's</Link></li>
+              <li><Link to="/menu/thali">Thali</Link></li>
+              <li><Link to="/menu/rice">Rice Combo</Link></li>
+              <li><Link to="/menu/bowl">Bowl</Link></li>
+              <li><Link to="/menu/hot-cold">Hot & Cold</Link></li>
             </ul>
           )}
         </div>
