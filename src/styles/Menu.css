@@ -206,4 +206,152 @@
     border: none;
     cursor: pointer;
   }
+  .proceedButton {
+    background-color: #8B4513;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .proceedButton:hover {
+    background-color: #6b3223;
+  }
+  .menu-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .menu-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .menu-card {
+    display: flex;
+  justify-content: space-between; /* Space between the text and image */
+  align-items: center; /* Vertically align the text and image */
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fff;
+  }
+  
+  .menu-info {
+    flex: 1;
+   
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  }
+  .menu-image {
+    width: 150px; /* Adjust the image size */
+    height: auto;
+    border-radius: 8px;
+    margin-left: 20px; /* Adds space between the text and image */
+  }
+  
+  .menu-item-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .menu-price {
+    font-size: 16px;
+    color: #ff5722;
+    margin: 5px 0;
+  }
+  
+  .menu-description {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .menu-rating {
+    font-size: 14px;
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  .menu-image-container {
+    position: relative;
+  }
+  
+  .menu-image {
+    width: 120px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .menu-add-button {
+    display: block;
+    width: 60px;
+    background-color: #28a745;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .menu-add-button:hover {
+    background-color: #218838;
+  }
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #1ea44c;
+    border-radius: 20px;
+    padding: 5px;
+    width: 80px;
+  }
+  
+  .qty-btn {
+    background: none;
+    border: none;
+    color: #1ea44c;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .qty-count {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1ea44c;
+    margin: 0 8px;
+  }
+  
+  .menu-add-button {
+    background-color: #1ea44c;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .menu-add-button:hover {
+    background-color: #17893a;
+  }
   
