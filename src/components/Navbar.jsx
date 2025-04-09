@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import "../styles/Navbar.css";
 import ReorderIcon from "@mui/icons-material/Reorder";
+import Logo from "../assets/logo.png";
+import "../styles/Navbar.css";
 
 function Navbar() {
   const [openLinks, setOpenLinks] = useState(false);
@@ -13,12 +13,12 @@ function Navbar() {
   };
 
   return (
-    <div className="navbar">
-      <div className="leftside">
-        <img src={Logo} alt="Logo" />
+    <nav className="navbar">
+      <div className="navbar-left">
+        <img src={Logo} alt="Logo" className="logo" />
       </div>
 
-      <div className={`rightside ${openLinks ? "open" : ""}`}>
+      <div className={`navbar-right ${openLinks ? "open" : ""}`}>
         <Link to="/">Home</Link>
         <Link to="/beverage">Beverage</Link>
 
@@ -42,13 +42,13 @@ function Navbar() {
           )}
         </div>
 
-        <Link to="/contact">Contact</Link>
+        <Link to="/admin" className="admin-link">Admin</Link>
       </div>
 
-      <button onClick={toggleNavbar}>
+      <button className="toggle-button" onClick={toggleNavbar}>
         <ReorderIcon />
       </button>
-    </div>
+    </nav>
   );
 }
 

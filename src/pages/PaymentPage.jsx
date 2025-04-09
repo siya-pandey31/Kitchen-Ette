@@ -1,42 +1,34 @@
-import React from 'react';
+const loadRazorpay = async () => {
+  const res = await fetch("/createOrder", { method: "POST" }); // You need a backend route
+  const { order } = await res.json();
 
-const PaymentPage = () => {
-  const loadRazorpay = () => {
-    const script = document.createElement('script');
-    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-    script.async = true;
-    script.onload = () => {
-      const options = {
-        key: 'YOUR_RAZORPAY_KEY', // ✅ Replace with your Razorpay Key
-        amount: 50000, // ₹500 (in paise)
-        currency: 'INR',
-        name: 'Kitchen Ette',
-        description: 'Order Payment',
-        image: '/logo.png', // ✅ Update with your logo path
-        handler: function (response) {
-          alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
-        },
-        prefill: {
-          name: 'Customer Name',
-          email: 'customer@example.com',
-          contact: '9999999999',
-        },
-        theme: {
-          color: '#3399cc',
-        },
-      };
-      const payment = new window.Razorpay(options);
-      payment.open();
-    };
-    document.body.appendChild(script);
+  const options = {
+    key: "IpQpyvOqrKOBwL",
+    amount: order.amount,
+    currency: "INR",
+    name: "Kitchen Ette",
+    order_id: order.id,
+    handler: async function (response) {
+      // Send response.razorpay_payment_id, order_id, and signature to backend
+      const verifyRes = await fetch("/verifyPayment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(response),
+      });
+
+      const result = await verifyRes.json();
+      if (result.status === "success") {
+        alert("Payment Verified!");
+      } else {
+        alert("Payment verification failed!");
+      }
+    },
+    prefill: {
+      name: "Customer",
+      email: "email@example.com",
+    },
   };
 
-  return (
-    <div className="payment-container">
-      <h2>Complete Your Payment</h2>
-      <button className="pay-button" onClick={loadRazorpay}>Proceed to Pay</button>
-    </div>
-  );
+  const rzp = new window.Razorpay(options);
+  rzp.open();
 };
-
-export default PaymentPage;

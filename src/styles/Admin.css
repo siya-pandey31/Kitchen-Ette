@@ -1,0 +1,27 @@
+.admin-login-container,
+.admin-dashboard {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.admin-login-container input,
+.admin-login-container button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}

@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 
 // Firebase configuration
@@ -8,7 +9,7 @@ const firebaseConfig = {
   authDomain: "kitchen-ette.firebaseapp.com",
   databaseURL: "https://kitchen-ette-default-rtdb.firebaseio.com",
   projectId: "kitchen-ette",
-  storageBucket: "kitchen-ette.appspot.com",  // ✅ Fixed typo here
+  storageBucket: "kitchen-ette.appspot.com",
   messagingSenderId: "364249574517",
   appId: "1:364249574517:web:2e7f3b80d0e2d969081c3c",
   measurementId: "G-X8W8L1S2NT"
@@ -16,7 +17,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app);  // ✅ Add Firestore database
+const db = getFirestore(app);
+const auth = getAuth(app);
 
-export { db };
+// ✅ Optional: Only initialize analytics in the browser
+let analytics;
+if (typeof window !== "undefined") {
+  analytics = getAnalytics(app);
+}
+
+export { db, auth, analytics };

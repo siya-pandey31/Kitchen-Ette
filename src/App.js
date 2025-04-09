@@ -10,6 +10,10 @@ import PaymentPage from "./pages/PaymentPage";
 import Cart from "./pages/cart"; // ✅ Import Cart Page
 import { CartProvider } from "./context/CartContext"; 
 import TodayMenu from "./pages/TodaysMenu"
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+
+
 
 function App() {
   return (
@@ -21,9 +25,12 @@ function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/menu/rice" element={<Rice />} />
           <Route path="/beverages" element={<Beverages />} />
-          <Route path="/cart" element={<Cart />} /> {/* ✅ Added Cart Route */}
+          <Route path="/cart" element={<Cart />} /> 
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/today-menu" element={<TodayMenu />} />
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+         
       
         </Routes>
         <Footer />
